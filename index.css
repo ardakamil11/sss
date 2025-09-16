@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Enterprise Design System - Muted Colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Professional Muted Theme - Enterprise SaaS */
+    --background: 10 10% 4%;              /* Deep Black #0a0a0a */
+    --foreground: 210 9% 91%;             /* Off-white #e5e5e7 */
+
+    /* Professional Containers */
+    --container: 210 9% 11%;              /* Dark charcoal #1c1c1e */
+    --container-foreground: 210 9% 91%;
+    
+    --card: 210 9% 11%;                   /* Dark charcoal #1c1c1e */
+    --card-foreground: 210 9% 91%;        
+    
+    /* Muted Professional Accents */
+    --primary: 72 100% 50%;               /* Bright Lime Green #CCFF00 */
+    --primary-foreground: 0 0% 0%;        /* Black text on lime green */
+    
+    --secondary: 210 9% 45%;              /* Steel Gray #6c757d */
+    --secondary-foreground: 210 9% 91%;
+    
+    --accent: 210 9% 18%;                 /* Subtle gray accent */
+    --accent-foreground: 210 9% 91%;
+    
+    /* Professional Text Colors */
+    --muted: 210 9% 18%;                  /* Muted background */
+    --muted-foreground: 210 6% 58%;       /* Muted gray text #8e8e93 */
+    
+    /* Professional Interactive Elements */
+    --border: 210 9% 18%;                 /* Muted gray borders #2c2c2e */
+    --input: 210 9% 11%;                  /* Input background */
+    --ring: 72 100% 50%;                  /* Focus ring - bright lime green */
+    
+    /* Professional Success */
+    --success: 72 100% 50%;               /* Bright Lime Green #CCFF00 */
+    --success-foreground: 0 0% 0%;        /* Black text on lime green */
+    
+    /* Destructive */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --radius: 0.5rem;
+    
+    /* Professional Gradients - Very Subtle */
+    --gradient-primary: linear-gradient(135deg, hsl(210 9% 11%) 0%, hsl(210 9% 13%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(210 9% 15% / 0.8) 0%, hsl(210 9% 11% / 0.9) 100%);
+    --shadow-subtle: 0 2px 8px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Professional Enterprise Components */
+  .glass-card {
+    @apply bg-card backdrop-blur-sm border border-border;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .glass-button {
+    @apply bg-card border border-border text-foreground;
+    @apply hover:bg-accent hover:border-primary/50;
+    transition: all 0.2s ease-out;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .glass-button:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  /* Professional Robotic Styles */
+  .enterprise-container {
+    background: hsl(var(--background));
+  }
+
+  .robotic-header {
+    @apply border-b border-border bg-background/95;
+    backdrop-filter: blur(8px);
+  }
+
+  .status-indicator {
+    @apply bg-success/10 border border-success/30 text-success;
+    background: linear-gradient(135deg, hsl(var(--success) / 0.05), hsl(var(--success) / 0.02));
+  }
+
+  .code-container {
+    @apply bg-muted/30 border border-border;
+    background: linear-gradient(135deg, hsl(210 9% 9%) 0%, hsl(210 9% 11%) 100%);
+    box-shadow: inset 0 1px 0 hsl(210 9% 15%);
+  }
+
+  .code-header {
+    @apply bg-muted/50 border-b border-border;
+    background: linear-gradient(90deg, hsl(210 9% 8%) 0%, hsl(210 9% 10%) 100%);
+  }
+
+  .professional-button {
+    @apply bg-card border border-border text-foreground font-medium;
+    @apply hover:bg-accent hover:border-primary/40;
+    @apply transition-all duration-200 ease-out;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .professional-button:hover {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .professional-button:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 1px 2px hsl(0 0% 0% / 0.2);
+  }
+
+  .line-numbers {
+    @apply text-muted-foreground font-mono text-sm leading-relaxed bg-muted/20;
+    user-select: none;
+    border-right: 1px solid hsl(var(--border));
+  }
+
+  .syntax-content {
+    @apply font-mono text-sm leading-relaxed text-foreground;
+    /* Clean monospace text without effects */
+  }
+
+  /* Professional Typography */
+  .enterprise-title {
+    @apply font-inter font-semibold tracking-tight text-foreground;
+    letter-spacing: -0.025em;
+  }
+
+  .enterprise-subtitle {
+    @apply font-inter font-normal text-muted-foreground;
+    letter-spacing: -0.01em;
+  }
+
+  /* Subtle Professional Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Professional Card */
+  .enterprise-card {
+    @apply bg-card border border-border;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  /* Technical Grid Pattern - Very Subtle */
+  .technical-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Professional hover effects only */
+  .hover-lift {
+    @apply transition-transform duration-200 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Clean professional background */
+  .cyber-grid {
+    background: hsl(var(--background));
+  }
+
+  /* Form Components */
+  .cyber-input {
+    @apply bg-input border border-border backdrop-blur-sm;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/50;
+    @apply transition-all duration-200;
+  }
+
+  .cyber-input:focus {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.5);
+  }
+
+  /* Gradient Text - Professional */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Professional Text */
+  .professional-text {
+    @apply text-foreground;
+    /* No effects - clean and professional */
+  }
+}
